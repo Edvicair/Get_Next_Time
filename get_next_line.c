@@ -54,17 +54,17 @@ char	*ft_fill_line(char **str, char *line)
 	return (line);
 }
 
-int	*ft_read(int *ret, int fd, char **buff)
+int	ft_read(int *ret, int fd, char **buff)
 {
 	*ret = read(fd, *buff, BUFFER_SIZE);
 	if (*ret == 0)
-		return (NULL);
+		return (0);
 	if (*ret == -1)
 	{
 		free(*buff);
 		*buff = NULL;
 	}
-	return (ret);
+	return (*ret);
 }
 
 char	*get_next_line(int fd)
